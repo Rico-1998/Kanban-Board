@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Kanban',
     'rest_framework',
     'corsheaders',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,12 @@ CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:8000',
     # Weitere URLs hier hinzufügen, falls benötigt
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
